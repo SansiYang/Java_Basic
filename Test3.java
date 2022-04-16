@@ -1,11 +1,17 @@
-package project1;
+package project2;
+
+import java.util.Scanner;
 
 public class Test3 {
-
+//输入
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("拜拜");
-		System.out.println("大家好");
+		
+		
+		Scanner sc=new Scanner(System.in);
+		String text=sc.nextLine();
+		
+		
+		System.out.println(text);
 
 	}
 

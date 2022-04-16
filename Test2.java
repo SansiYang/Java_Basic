@@ -1,20 +1,15 @@
-package project1;
+package project2;
 
 public class Test2 {
 
 	public static void main(String[] args) {
-		int x;
-		double y;
-		char z;
-		
-		x = 12;
-		System.out.println(x);
-		
-		y = 2.4;
-		System.out.println(y);
-		
-		z ='我';
-		System.out.println("帅哥是谁："+z);
-				}	
+		int a=10,c;
+		char b='语';
+		c=a+b;
+		System.out.println( (int)b );//强制转换 b 为 int 型 
+		System.out.println(  c  );   //因为 c 为 int 型，所以输出的还是数字
+		System.out.println((char)c); //
+
+	}
 
 }

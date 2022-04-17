@@ -1,50 +1,47 @@
-package project2;
+package project3;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Test9 {
 
+	// 定义常量 便于以后修改数据
+	private static final double RATE1 = 0.15;
+	private static final double RATE2 = 0.28;
+	private static final double RATE3 = 0.31;
+
+	private static final double SINGLE_BRACKET1 = 20450;
+	private static final double SINGLE_BRACKET2 = 51900;
+
+	private static final double MARRIDE_BRACKET1 = 35800;
+	private static final double MARRIDE_BRACKET2 = 86500;
+
 	public static void main(String[] args) {
-		// tencent
-		//牌类游戏
-		//4个花色   13张/1一花色
-		Random r=new Random();
-		int a=r.nextInt(52);
-		String hua="";
-		switch(a/13) {
-		case 0: hua="方块"; break;
-		case 1: hua="梅花"; break;
-		case 2: hua="红桃"; break;
-		case 3: hua="黑桃"; break;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("请输入婚姻状况，已婚请输入1，未婚请输入0:");
+		int status = sc.nextInt();
+		if (status != 0 && status != 1) {
+			System.out.println("输入错误！");
 		}
-		
-		
-		int b=a%13+1;
-		String shu="";
-		switch(b) {
-		case 1:  shu="A"; break;
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-		case 9:
-		case 10: shu=b+""; break;
-		case 11: shu="J"; break;
-		case 12: shu="Q"; break;
-		case 13: shu="K"; break;
-		
+		System.out.print("请输入你的收入：");
+		int income = sc.nextInt();
+
+		if (status == 0) {
+			if (income < SINGLE_BRACKET1) {
+				System.out.println("您应交的税额为：" + income * RATE1);
+			} else if (income >= SINGLE_BRACKET1 && income < SINGLE_BRACKET2) {
+				System.out.println("您应交的税额为：" + income * RATE2);
+			} else {
+				System.out.println("您应交的税额为：" + income * RATE3);
+			}
+		} else if (status == 1) {
+			if (income < MARRIDE_BRACKET1) {
+				System.out.println("您应交的税额为：" + income * RATE1);
+			} else if (income >= MARRIDE_BRACKET2 && income < SINGLE_BRACKET2) {
+				System.out.println("您应交的税额为：" + income * RATE2);
+			} else {
+				System.out.println("您应交的税额为：" + income * RATE3);
+			}
 		}
-		System.out.println( a );
-		System.out.println(hua + shu);
-		
-		
-		
-		Scanner sc=new Scanner(System.in);
-		
 	}
 
 }

@@ -1,14 +1,25 @@
-package project2;
+package project3;
+
+import java.util.Scanner;
 
 public class Test2 {
 
 	public static void main(String[] args) {
-		int a=10,c;
-		char b='语';
-		c=a+b;
-		System.out.println( (int)b );//强制转换 b 为 int 型 
-		System.out.println(  c  );   //因为 c 为 int 型，所以输出的还是数字
-		System.out.println((char)c); //
+		//输入一个年份判断是不是闰年
+		//四年一闰  百年不闰   四百年再闰
+		System.out.print("请输入年份：");
+		Scanner sc=new Scanner(System.in);
+		int year=sc.nextInt();
+		if(year<=0||year>3000) {
+			System.out.println("年份输入错误！");
+			return;
+		}
+		if((year%4==0  && year%100!=0)  ||  (year%400==0)  ) {
+			System.out.println(year+"是闰年");
+		}else {
+			System.out.println(year+"是平年");
+		}
+		
 
 	}
 

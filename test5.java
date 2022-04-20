@@ -1,32 +1,49 @@
-package project4;
+package project5;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class test5 {
 
 	public static void main(String[] args) {
-		/*
-		 菜单适合用  do{
-		 
-		 	}while();
-		 	因为必须要执行一次
-		 */
-		Scanner sc = new Scanner(System.in);
-		
-		boolean flag=true;
-		do {
-			System.out.println("**********");
-			System.out.println("1、登录");
-			System.out.println("2、修改密码");
-			System.out.println("3、退出");
-			System.out.println("请选择：");
-			int choise=sc.nextInt();
-			if(choise==3) {
-				System.out.println("退出成功！");
-				flag=false;
-			}
-		}while(flag==true);
+		int [] x=new int[20];
+		genArray(x);
+		print(x);
+		find(x);
 
+	}
+	//查找数组里面的数
+	static void find(int [] y) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("请输入要查找的值：");
+		int num=sc.nextInt();
+		int i;
+		for(i=0;i<y.length;i++) {
+			if(num==y[i]) {
+				System.out.println("在"+i+"号找到了"+y[i]);
+				break;
+			}
+			if(i>=y.length) {
+				System.out.println("没有找到"+num);
+			}
+		}
+	}
+
+	//随机生成数组值
+	static void genArray(int[] y) {
+		for (int i = 0; i < y.length; i++) {
+			Random r = new Random();
+			int a = r.nextInt(101);
+			y[i] = a;
+		}
+	}
+	
+	//输出数组元素
+	static void print(int[] y) {
+		for (int ele : y) {
+			System.out.print(ele + "\t");
+		}
+		System.out.println();
 	}
 
 }

@@ -1,14 +1,39 @@
-package project4;
+package project5;
+
+import java.util.Random;
 
 public class test2 {
 
 	public static void main(String[] args) {
+		//数组的输入
+		int [] arr=new int[10];
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=i;
+		}
+		//数组的输出1
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i]+"\t");
+		}
+		System.out.println();
 		
-		char ch='男'; //会将 char 型自动转换成 int 型 进行判断
-		switch(ch) {
-		case '男': System.out.println("male"); break;
-		case '女': System.out.println("demale"); break;
-		default: System.out.println("没有这个性别！");
+		//加强型输出
+		for(int ele:arr) {		//从数组arr中每次取出一个元素 int 放到变量ele中
+			System.out.print(ele+"\t");
+		}
+		System.out.println();
+		//反向输出arr中的值
+		for(int i=arr.length-1;i>=0;i--) {
+			System.out.print(arr[i]+"\t");
+		}
+		System.out.println();
+		//结合随机数生成器来完成数组的赋值
+		Random r=new Random();
+		for(int i=0;i<arr.length;i++) {
+			int x=r.nextInt(32);
+			arr[i]=x;
+		}
+		for(int ele:arr) {
+			System.out.print(ele+"\t");
 		}
 
 	}

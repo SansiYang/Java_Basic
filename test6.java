@@ -1,27 +1,56 @@
-package project4;
+package project5;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class test6 {
 
 	public static void main(String[] args) {
+		int [] arr=new int[10];
+		System.out.println("请输入生成随机数的范围：");
+		Scanner sc=new Scanner(System.in);
+		int bound=sc.nextInt();
+		genArray(arr,bound);
+		System.out.println("数组为：");
+		print(arr);
+		System.out.println("请输入要查找的数：");
+		int num=sc.nextInt();
 		
-		
-		
-		Random r=new Random();
-		
-		int cha=0x9FA5-0x4E00;
-		int i=0;
-		for(i=1;i<=100;i++) {
-			int name1=r.nextInt(  cha  )+0x4E00;
-			int name2=r.nextInt(cha)+0x4E00;
-			String name=(char)name1+" "+(char)name2;
-			int age=r.nextInt(61)+20;
-			char sex=r.nextInt(2)==0?'男':'女';
-			System.out.println("姓名为："+name+"\t"+"年龄为："+age+"\t"+"性别为："+sex	);
+		int start=0;
+		int index=find(arr,num,start);
+		if(index!=-1) {
+			System.out.println("数组中有"+num+"这个元素");
 		}
 		
 		
 	}
+	//随机生成数组值
+		static void genArray(int[] y,int bound) {
+			for (int i = 0; i < y.length; i++) {
+				Random r = new Random();
+				int a = r.nextInt(bound);
+				y[i] = a;
+			}
+		}
+		
+		//输出数组元素
+		static void print(int[] y) {
+			for (int ele : y) {
+				System.out.print(ele + "\t");
+			}
+			System.out.println();
+		}
+		
+		//找数组里面的元素
+		static int find(int[]y,int num,int start) {
+			int index=-1;
+			for(int i=0;i<y.length;i++) {
+				if(y[i]==num) {
+					return i;
+				}
+			}
+			return index;
+		}
+
 
 }

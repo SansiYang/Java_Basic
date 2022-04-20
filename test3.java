@@ -1,32 +1,32 @@
-package project4;
+package project5;
+
+import java.util.Random;
 
 public class test3 {
 
 	public static void main(String[] args) {
-		//µ•÷ÿ—≠ª∑
-		int sum=0;
-		int i=1;
+		int[] x = new int[10] ;
+
 		
-		while(i<=100) {
-			sum=sum+i;
-			i++;
+
+		genArray(x);
+		print(x);
+
+	}
+
+	static void genArray(int[] y) {
+		for (int i = 0; i < y.length; i++) {
+			Random r = new Random();
+			int a = r.nextInt(101);
+			y[i] = a;
 		}
-		System.out.println(sum);
-		
-		for(i=1;i<=100;i++) {
-			sum=i+sum;
+	}
+
+	static void print(int[] y) {
+		for (int ele : y) {
+			System.out.print(ele + "\t");
 		}
-		System.out.println(sum);
-		
-		int i1=1;
-		int sum1=0;
-		do {
-			sum1=sum1+i1;
-			i++;
-		}while(i1<=100);
-		System.out.println(sum1);
-		
-		
+		System.out.println();
 	}
 
 }

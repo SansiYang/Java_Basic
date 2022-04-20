@@ -1,48 +1,25 @@
-package project4;
+package project5;
+
+import java.util.Random;
 
 public class test8 {
 
 	public static void main(String[] args) {
-
-		// 1
-		for (int i = 1; i <= 5; i++) {
-			for (int j = 1; j <= i; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
+		// 给一个数组
+		int [] x=new int[] {1,5,7,9};
+		
+		//随机在数组x中抽取元素，要求每次抽的不一样。抽取次数和数组长一样。
+		Random r=new Random();
+		int b=x.length;
+		
+		for(int i= 0;i<x.length;i++) {
+		int a=r.nextInt(b);
+		System.out.println(x[a]);
+		int temp=x[a];
+		x[a]=x[x.length-1];
+		x[x.length-1]=temp;
+		b--;
 		}
-		System.out.println("--------------------------------------------");
-
-		// 2
-		int i = 1;
-		int j = 1;
-		for (i = 1; i <= 5; i++) {
-			for (int k = 4; k >= i; k--) {
-				System.out.print(" ");
-			}
-			for (j = 1; j <= 2 * i - 1; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
-		}
-		System.out.println("--------------------------------------------");
-
-		// 3
-		for (i = 1; i <= 5; i++) {
-			for (int k = 4; k >= i; k--) {
-				System.out.print(" ");
-			}
-			for (j = 1; j <= 2 * i - 1; j++) {
-				if (j == 1 || j == 2 * i - 1) {
-					System.out.print("*");
-				} else {
-					System.out.print(" ");
-				}
-			}
-			System.out.println();
-		}
-		System.out.println("--------------------------------------------");
-
 	}
 
 }

@@ -1,41 +1,42 @@
-package project5;
+package project6;
 
-import java.util.Random;
+import utils.YcUtil;
 
 public class test2 {
 
 	public static void main(String[] args) {
-		//数组的输入
-		int [] arr=new int[10];
-		for(int i=0;i<arr.length;i++) {
-			arr[i]=i;
-		}
-		//数组的输出1
-		for(int i=0;i<arr.length;i++) {
-			System.out.print(arr[i]+"\t");
-		}
-		System.out.println();
+		// 选择排序
+		// 创建数组
+		int[] x = new int[5];
+		// 随机赋值
+		YcUtil.genArray(x, 10);
+		// 打印数组
+		YcUtil.print(x);
+		// 选择排序算法
+		System.out.println("最大数的索引为："+findMaxIndex(x,1));
 		
-		//加强型输出
-		for(int ele:arr) {		//从数组arr中每次取出一个元素 int 放到变量ele中
-			System.out.print(ele+"\t");
+		for(int i=0;i<x.length-1;i++) {
+			int maxIndex=findMaxIndex(x,i);
+			if(x[maxIndex]!=i) {
+				int temp=x[maxIndex];
+				x[maxIndex]=x[i];
+				x[i]=temp;
+			}
 		}
-		System.out.println();
-		//反向输出arr中的值
-		for(int i=arr.length-1;i>=0;i--) {
-			System.out.print(arr[i]+"\t");
-		}
-		System.out.println();
-		//结合随机数生成器来完成数组的赋值
-		Random r=new Random();
-		for(int i=0;i<arr.length;i++) {
-			int x=r.nextInt(32);
-			arr[i]=x;
-		}
-		for(int ele:arr) {
-			System.out.print(ele+"\t");
-		}
+		System.out.println("选择排序的结果为：");
+		YcUtil.print(x);
 
 	}
+	
+	static int findMaxIndex(int []x,int from) {
+		int maxIndex=from;
+		for(int i=from+1;i<x.length;i++) {
+			if(x[i]>x[maxIndex]) {
+				maxIndex=i;
+			}
+		}
+		return maxIndex;
+	}
+	
 
 }
